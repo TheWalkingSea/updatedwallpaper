@@ -10,7 +10,6 @@ import os
 
 from flask import Flask, request, send_file, redirect, session, jsonify
 
-from pytube import YouTube
 from tempfile import TemporaryDirectory
 import re
 import zipfile
