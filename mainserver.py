@@ -226,7 +226,7 @@ def verify(req):
 async def todo():
     tasks = list()
     async with aiohttp.ClientSession() as session:
-        iti = instructuretoimg("1124~qOyLYOXZ1K64MQJhcbY4mO7W7ifLLidRv4A5s2K82xhXGGMVcm9f9oV2Kv4AueYC")
+        iti = instructuretoimg("TOKEN")
         for key, value in iti.courseids.items():
             task = iti.parse(key, value, session)
             tasks.append(task)
@@ -251,7 +251,7 @@ async def todo():
 async def updatewallpaper():
     tasks = list()
     async with aiohttp.ClientSession() as session:
-        iti = instructuretoimgcp("1124~qOyLYOXZ1K64MQJhcbY4mO7W7ifLLidRv4A5s2K82xhXGGMVcm9f9oV2Kv4AueYC")
+        iti = instructuretoimgcp("TOKEN")
         for key, value in iti.courseids.items():
             task = iti.parse(key, value, session)
             tasks.append(task)
@@ -271,20 +271,6 @@ def removesuffix(name, remove):
 def before_request():
     session.permenant = True
 
-@app.route("/downloadall", methods=["GET"])
-def downloadfolder():
-    if verify(req=request):
-        with zipfile.ZipFile("songs.zip", "w") as Zip:
-            for foldername in os.listdir(os.path.join(os.getcwd(), "music")):
-                foldername = os.path.join(os.getcwd(), os.path.join("music", foldername))
-                for filename in os.listdir(foldername):
-                    Zip.write(os.path.join(foldername, filename), arcname=filename)
-        with open("songs.zip", "rb") as r:
-            bytes = r.read()
-        return send_file(BytesIO(bytes), download_name="songs.zip", as_attachment=True)
-    else:
-        return redirect("/fail")
-                
 
 @app.route("/")
 def default():
@@ -294,110 +280,6 @@ def default():
 def fail():
     return "fail"
 
-@app.route("/downloadvideo", methods=["GET"])
-def downloadvideo():
-    if verify(req=request):
-        url = request.args.get("URL")
-        with TemporaryDirectory() as tmp_dir:
-            stream = YouTube(url).streams.filter(res="1080p").first()
-            if not stream:
-                stream = YouTube(url).streams.get_highest_resolution()
-            print("DOWNLOADING")
-            download_path=stream.download(output_path=tmp_dir)
-            print("DOWNLOADED")
-            video_name = download_path.split("\\")[-1].strip(tmp_dir)
-            with open(download_path, "rb") as f:
-                file_bytes = f.read()
-            print("SENDING")
-            return send_file(BytesIO(file_bytes), download_name=video_name, as_attachment=True)
-    else:
-        return redirect("/fail")
-
-
-@app.route("/downloadaudio", methods=["GET"])
-def downloadaudio():
-    if verify(req=request):
-        def get_video_name(): # f"{stream.default_filename[:-4]}.mp3"
-            try:
-                name = stream.default_filename
-                name = re.sub("([\(\[]).*?([\)\]])", "", name)
-                name = name.split("-", 1)[1]
-                name = name.replace("-", "", 1)
-                name = name.split("ft")[0]
-                name = name.split("feat")[0]
-            except: pass
-            name = removesuffix(name, ".mp4")
-            name = name.strip()
-            name += ".mp3"
-            return name
-
-        url = YouTube(request.args.get("URL"))
-        stream = url.streams #.get_highest_resolution()
-        stream = stream.filter(only_audio=True).first()
-        dire = os.path.join(os.getcwd(), os.path.join("music", url.author.replace("VEVO", "")))
-        if not os.path.isdir(dire):
-            dire = dire.replace("VEVO", "")
-            os.makedirs(dire)
-        print(dire)
-        path = stream.download(output_path=dire, filename=get_video_name())
-        with open(path, "rb") as r:
-            bytes = r.read()
-        return send_file(BytesIO(bytes), download_name=get_video_name(), as_attachment=True)
-    else:
-        return redirect("/fail")
-
-@app.route("/updatenames", methods=["GET"])
-def updatenames():
-    if verify(req=request):
-        load = dict()
-        other = list()
-        for foldername in os.listdir(os.path.join(os.getcwd(), "music")):
-            files = list()
-            path = path = os.listdir(os.path.join(os.getcwd(), os.path.join("music", foldername)))
-            for filename in path:
-                files.append(removesuffix(filename, ".mp3"))
-                if len(path) > 4:
-                    load[foldername] = sorted(files)
-                else:
-                    other.append(removesuffix(filename, ".mp3"))
-        load["Other"] = sorted(other)
-        return load
-    else:
-        return redirect("/fail")
-
-@app.route("/updateaudio", methods=["GET"])
-def updateaudio():
-    print(request.headers.get("before"))
-    if verify(req=request):
-        afterfiles = list()
-        beforefiles = list()
-        difference = list()
-
-        for foldername in os.listdir(os.path.join(os.getcwd(), "music")):
-            path = os.listdir(os.path.join(os.getcwd(), os.path.join("music", foldername)))
-            for filename in path:
-                afterfiles.append(removesuffix(filename, ".mp3"))
-
-        for item in json.loads(request.headers.get("before")).values():
-            for e in item:
-                beforefiles.append(e)
-
-        for i in afterfiles:
-            if i not in beforefiles:
-                difference.append(i)
-
-        with zipfile.ZipFile("songs.zip", "w") as Zip:
-            for foldername in os.listdir(os.path.join(os.getcwd(), "music")):
-                foldername = os.path.join(os.getcwd(), os.path.join("music", foldername))
-                for filename in os.listdir(foldername):
-                    if removesuffix(filename, ".mp3") in difference:
-                        Zip.write(os.path.join(foldername, f"{filename}"), arcname=filename)
-        with open("songs.zip", "rb") as r:
-            bytes = r.read()
-        return send_file(BytesIO(bytes), download_name="songs.zip", as_attachment=True)
-
-    else:
-        return redirect("/fail")
 
 if __name__ == '__main__':
     app.run(IP, PORT)
