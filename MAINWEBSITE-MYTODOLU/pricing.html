@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link rel="stylesheet" href="pricing.css">
+    <script src="https://kit.fontawesome.com/3ec4f8f1e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="topHeading">
+        <i class="fa-solid fa-bars" id="bar" onclick="showMenu()"></i>
+        <header class="heading">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <h1 id="busName">Lorem ipsum</h1>
+            <nav id="navbar">
+                <i class="fa-solid fa-xmark" id="xmark" onclick="hideMenu()"></i>
+                <li><a href="#features" id="features">Features</a></li>
+                <li><a href="#about" id="about">About</a></li>
+                <li><a href="/pricing.html" id="price">Pricing</a></li>
+                <li><a href="#status" id="status">Status</a></li>
+                <li><a href="#login" id="login">Login</a></li>
+            </nav>
+        </header>
+    </div>
+    
+    <section id="pricing">
+        <div class="pricingContainer">
+            <div class="pricingChild">
+                <h1 class="pricingName">Classic</h1>
+                <ul class="pricingAbout">
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                </ul>
+                <h2 class="pricingPrice">$20</h2>
+                <p class="pricingPerTime">per month</p>
+                <button class="pricingPurchaseBtn">Purchase</button>
+            </div>
+            <div class="recommendContainer">
+                <div class="recommendContain">
+                    <h1 class="recommend">Recommended</h1>
+                </div>
+                <div class="pricingChild highlight">
+                <h1 class="pricingName">Plus</h1>
+                <ul class="pricingAbout">
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                    <li class="pricingAboutListChild">Lorem ipsum</li>
+                </ul>
+                <h2 class="pricingPrice">$2</h2>
+                <p class="pricingPerTime">per month</p>
+                <button class="pricingPurchaseBtn">Purchase</button>
+            </div>
+        </div>
+            
+        </div>
+    </section>
+
+    
+
+
+    <script>
+        const nav = document.getElementById("navbar");
+        function showMenu() {
+            nav.style.right = "0px"
+        }
+        function hideMenu() {
+            nav.style.right = "-200px"
+        }
+    </script>
+</body>
+</html>

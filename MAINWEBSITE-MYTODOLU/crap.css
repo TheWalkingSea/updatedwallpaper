@@ -1,0 +1,150 @@
+.logo {
+    position: relative;
+    bottom: 2.66px;
+    /* width: 3.64vw; */
+    width: 70px;
+    cursor: pointer;
+    /* padding: 28px 0 0 20px; */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.68);
+    height: 78px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#navbar {
+    position: relative;
+}
+
+#navbar li {
+    padding-left: 1em;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+#login {
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 25;
+    padding: 5px 15px;
+    border-radius: 6px;
+    background-color: #ffa013;
+}
+
+
+
+/* -----CRAP2----- */
+
+
+
+
+#frontPage {
+    background-size: contain;
+}
+#navbar li{
+    /* position: absolute; */
+    /* display: none; */
+    right: 0px;
+}
+#navbar li a#login{
+    color: white;
+    background-color: transparent;
+    border-radius: none;
+    margin-bottom: auto;
+    padding: initial;
+    border-radius: 0px;
+}
+/* .fa-solid{
+    right: 19px;
+    position: absolute;
+    visibility: visible;
+    color: #fff;
+    font-size: 30px;
+    display: block;
+    margin: 10px;
+}
+.fa-xmark{
+    right: 22px;
+} */
+
+
+
+
+/* ------- CRAP 3 --------- */
+
+
+.flex{
+    display: flex;
+}
+.centerx{
+    text-align: center;
+}
+
+.centerxflex{
+    justify-content: center;
+}
+
+#about{
+    height: 50vh;
+    width: 100%;
+}
+
+
+#about{
+    padding: 5vh 5%;
+    height: 65vh;
+    width: 100%;
+    background-color:#0f1e34;
+}
+
+.aboutTitle{
+    margin: 20px auto;
+    margin-bottom: 30px;
+    width: fit-content;
+    font-size: 2em;
+    color: #d7d9ce;
+    border-radius: 8px;
+}
+
+.aboutHead{
+    text-align: center;
+    font-size: 1.2em;
+    color: rgb(31, 28, 28);
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.aboutParagraph{
+    padding: 20px;
+}
+
+.aboutbox{
+    margin: auto 2vw;
+    padding: 100px auto;
+    background-color: rgb(49, 46, 46);
+    border-radius: 10px;
+}
+
+.aboutHead, .aboutParagraph{
+    color: var(--better-white);
+}
+
+
+.centerdiv{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#aboutLogo{
+    background-position: center;
+    width: 8%;
+}

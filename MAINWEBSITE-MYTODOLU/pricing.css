@@ -1,0 +1,210 @@
+@import url(style.css);
+
+body{
+    /* background-color: #f2f2f2; */
+    background: linear-gradient(270deg, rgb(39, 89, 182), rgb(51, 153, 82), rgb(39, 89, 182), rgb(51, 153, 82));
+    box-sizing: border-box;
+}
+.topheading{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#navbar li a{
+    color:black;
+}
+#navbar{
+    position: relative;
+    transform: translateY(10%);
+    padding: 0;
+}
+.heading{
+    background-color: #1a4e9c;
+}
+
+.fa-solid{
+    visibility: hidden;
+    position: absolute;
+    /* float: right; */
+}
+
+
+@media (max-width: 950px) {
+    .fa-solid{
+        position: relative;
+        visibility: visible;
+        right: 0px;
+    }
+    #frontPage {
+        background-size: contain;
+    }
+    #navbar{
+        overflow: hidden;
+        transform: initial;
+        position:absolute;
+        top:0;
+        /* right:0; */
+        background-color: orange;
+        min-width: 200px;
+        right: -200px;
+        /* height: 100vh; */
+        padding: 0%;
+        transition: 1s;
+        z-index: 1;
+    }
+    #navbar li{
+        display: block;
+        margin-bottom: 50px;
+        position: relative;
+        /* right: -200px; */
+    }
+    #navbar li a#login{
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        background-color: transparent;
+        padding: 0%;
+    }
+
+    #bar{
+        position: absolute;
+        top:43px;
+        right:30px;
+        font-size: 1.5rem;
+    }
+    #xmark{
+        margin: 25px 25px;
+        font-size: 1.6em;
+        color: white;
+    }
+    /* #featureHead{
+        font-size: 1.2rem;
+        visibility: hidden;
+        position: absolute;
+    } */
+    #featureHead{
+        margin-top: 20px;
+        position: relative;
+        width: 80vw;
+        font-size: 1.1em;
+        text-align: center;
+        /* margin:auto; */
+    }
+    .centered{
+        border-radius: 20px;
+        height: 350px;
+        /* width: 629px; */
+        width: 85%;
+    }
+    #learnMore{
+        padding: 13px 40px;
+    }
+}
+
+
+/* ----- PRICING ------- */
+
+
+.pricingChild{
+    width: 30vw;
+    margin-top: 30px;
+    padding: 60px;
+    min-height: 70vh;
+    background-color: rgb(119, 119, 223);
+    /* width: fit-content; */
+    border-radius: 20px;
+}
+
+ul li{
+    list-style: none;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5em;
+}
+
+ul li:first-child{
+    padding-top: 10px;
+}
+
+ul li::before{
+    content: "\2713";
+    position: absolute;
+    transform: translateX(-25px);
+    color: rgb(0, 255, 0);
+}
+
+.pricingPrice{
+    margin-top:20px;
+    font-size: 40;
+}
+.pricingPrice, .pricingPerTime{
+    text-align: center;
+}
+
+.pricingPurchaseBtn{
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: rgb(218, 146, 14);
+    padding: 10px 20px;
+    transition: .5s;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+
+.pricingPurchaseBtn:hover{
+    box-shadow: 1px 1px 1px 1px rgb(59, 51, 51);
+}
+
+.pricingContainer{
+    padding-top: 5%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
+.highlight{
+    border: 5px solid rgb(0, 238, 255);
+}
+.recommendContain{
+    display:flex;
+    justify-content: center;
+}
+
+.recommend{
+    position: absolute;
+    transform: translateY(-50%);
+    color:rgb(60, 40, 116);
+
+}
+
+.pricingName{
+    text-align: center;
+}
+
+.pricingPerTime{
+    font-size: 30;
+}
+
+
+@media (max-width: 950px) {
+    .pricingContainer{
+        flex-wrap: wrap;
+    }
+    .pricingChild{
+        width: 80vw;
+    }
+    .pricingChild:first-of-type{
+        order: 2;
+        margin-bottom: 50px;
+    }
+    .pricingChild:last-of-type{
+        margin-top: 60px;
+    }
+    .recommend{
+        margin-top: 20px;
+    }
+    body{
+        background: linear-gradient(180deg, rgb(51, 153, 82), rgb(39, 89, 182));
+    }
+}

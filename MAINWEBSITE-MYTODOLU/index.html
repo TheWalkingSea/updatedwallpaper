@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3ec4f8f1e2.js" crossorigin="anonymous"></script>
+    <title>Website</title>
+
+</head>
+<body>
+    <section id="frontPage">
+        <i class="fa-solid fa-bars" id="bar" onclick="showMenu()"></i>
+        <header class="heading">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <h1 id="busName">Lorem ipsum</h1>
+            <nav id="navbar">
+                <i class="fa-solid fa-xmark" id="xmark" onclick="hideMenu()"></i>
+                <li><a href="#feature">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="#status">Status</a></li>
+                <li><a href="#login"W>Login</a></li>
+            </nav>
+        </header>
+        <div class="mainScreenCentered">
+            <h1 id="mainCenterName">Todolu</h1>
+            <!-- <p id="featureHead">todolol reminds you to turn in your assignments on time by automatically setting your desktops background to a neat and tidy to-do list. Automatically updating every time an assignment is assigned or completed.</p> -->
+            <p id="featureHead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</p>
+            <button class="button" id="learnMore"><a href="learnMore.html">Learn More Here</a></button>
+        </div>
+    </section>
+
+
+
+    <section id="feature">
+        <h1 class="centerxflex featureTitle">Features</h1>
+        <div class="flex featureContainer">
+            <div class="featureBox">
+                <h1 class="featureHead">Lorem ipsum</h1>
+                <p class="featureParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Ultrices dui sapien eget mi proin sed libero.</p>
+            </div>
+            <div class="featureBox">
+                <h1 class="featureHead">Lorem ipsum</h1>
+                <p class="featureParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Ultrices dui sapien eget mi proin sed libero.</p>
+            </div>
+            <div class="featureBox">
+                <h1 class="featureHead">Lorem ipsum</h1>
+                <p class="featureParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Ultrices dui sapien eget mi proin sed libero.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="main">
+        <img src="images/logo.png" alt="LOGO" class="logo centerdiv" id="featureLogo">
+        <h1 class="centertext mainName">About CanvList</h1>
+        <p id="mainText" class="centertext">CanvList provides an easy and automatic way to check for incomplete assignments by setting your wallpaper. It's automatic and secure design prevents any issues.</p>
+    </section>
+
+    <section id="about">
+        <div class="aboutContainer">
+            <img src="images/preview.png" class="demo computerDemo">
+            <p class="aboutText">CanvList formats it's list into 3 separate columns: assignments, points, and due date. It is further sorted by course name, listing each assignment. The background picture, font, and layout are fully customizable by the user.</p>
+            <img src="images/iphoneDemo.png" class="demo iphoneDemo">
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+        const nav = document.getElementById("navbar");
+        function showMenu() {
+            nav.style.right = "0px"
+        }
+        function hideMenu() {
+            nav.style.right = "-200px"
+        }
+    </script>
+</body>
+</html>
